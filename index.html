@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePlayground</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-material-dark.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>Code<span>Playground</span></h1>
+            </div>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="lua">Lua</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="editor-container">
+            <div class="editor-toolbar">
+                <div class="toolbar-left">
+                    <button id="run-btn" class="tool-btn run-btn">
+                        <i class="fas fa-play"></i>
+                        <span>Run Code</span>
+                    </button>
+                    <button id="save-btn" class="tool-btn save-btn">
+                        <i class="fas fa-download"></i>
+                        <span>Save File</span>
+                    </button>
+                </div>
+                <div class="toolbar-right">
+                    <div class="filename-input">
+                        <i class="fas fa-file-code"></i>
+                        <input type="text" id="filename" value="script.lua" placeholder="filename.ext">
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-area">
+                <div class="code-wrapper">
+                    <textarea id="code-editor" spellcheck="false">-- Welcome to Lua Editor
+function greet(name)
+    print("Hello, " .. name .. "!")
+end
+
+-- Example usage
+greet("World")
+
+-- Fibonacci function
+function fibonacci(n)
+    if n <= 1 then
+        return n
+    end
+    return fibonacci(n - 1) + fibonacci(n - 2)
+end
+
+print("Fibonacci of 10:", fibonacci(10))</textarea>
+                    <pre id="code-highlight"><code class="language-lua line-numbers">-- Welcome to Lua Editor
+function greet(name)
+    print("Hello, " .. name .. "!")
+end
+
+-- Example usage
+greet("World")
+
+-- Fibonacci function
+function fibonacci(n)
+    if n <= 1 then
+        return n
+    end
+    return fibonacci(n - 1) + fibonacci(n - 2)
+end
+
+print("Fibonacci of 10:", fibonacci(10))</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="output-container">
+            <div class="output-header">
+                <div class="output-title">
+                    <i class="fas fa-terminal"></i>
+                    <h3>Execution Results</h3>
+                </div>
+                <button id="clear-btn" class="clear-btn">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Clear</span>
+                </button>
+            </div>
+            <div id="output" class="output-content"></div>
+        </div>
+
+        <div class="visualization-panel">
+            <div class="visualization-header">
+                <i class="fas fa-project-diagram"></i>
+                <h3>Code Visualization</h3>
+            </div>
+            <div id="visualization" class="visualization-content">
+                <div class="placeholder">
+                    <i class="fas fa-running"></i>
+                    <p>Run your code to see visualization</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-lua.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
